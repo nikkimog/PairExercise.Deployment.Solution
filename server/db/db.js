@@ -5,6 +5,11 @@ const dbUrl = process.env.DATABASE_URL || `postgres://localhost:5432/${dbName}`;
 const client = new Sequelize(dbUrl, {
   logging: false,
   operatorsAliases: false,
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // },
+  sslmode: require,
+  ssl: true,
 });
 console.log(dbUrl, "DBURL");
 module.exports = client;
